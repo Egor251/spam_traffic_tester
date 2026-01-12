@@ -1,0 +1,35 @@
+[package]
+name = "trafficforge"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+default = ["core", "http", "tcp"]
+core = []
+http = []
+tcp = []
+udp = []
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+tokio = { version = "1.48", features = ["full"] }
+reqwest = { version = "0.12", features = ["json"] }
+thiserror = "2.0"
+async-trait = "0.1"
+futures = "0.3.31"
+serde_yaml = "0.9.34+deprecated"  # Для async методов в трейтах
+
+[lib]
+name = "trafficforge"
+path = "src/lib.rs"
+
+[[bin]]
+name = "trafficforge"
+path = "src/main.rs"
+
+[dev-dependencies]
+criterion = "0.5"
+
+[[bench]]
+name = "benchmarks"
+harness = false

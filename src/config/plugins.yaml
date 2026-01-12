@@ -1,0 +1,21 @@
+http_flood:
+  enabled: true
+  type: generator
+  config:
+    default_target: "http://example.com"
+    rate_per_sec: 1000
+    duration_sec: 60
+
+http_protocol:
+  enabled: true
+  type: protocol
+  config:
+    timeout_sec: 30
+    retries: 3
+    user_agent: "TrafficForge/1.0"
+
+tcp_syn:
+  enabled: false  # отключен
+  type: generator
+  config:
+    port_range: "1-1000"
