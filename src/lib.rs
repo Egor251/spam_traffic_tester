@@ -1,6 +1,6 @@
-mod plugins;
-mod engine;
-mod registry;
+pub mod plugins;
+pub mod engine;
+pub mod registry;
 pub mod errors;
 
 pub use engine::MicroKernel;

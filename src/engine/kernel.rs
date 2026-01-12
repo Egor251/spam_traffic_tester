@@ -28,7 +28,7 @@ impl MicroKernel {
 
         for generator in &self.generators {
             // TODO: Генерация и отправка пакетов
-            println!("Генератор: {:?}", generator.target());
+            todo!()
         }
     }
 }

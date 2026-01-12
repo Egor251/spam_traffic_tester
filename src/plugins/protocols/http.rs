@@ -32,7 +32,7 @@ impl ProtocolHandler for HttpClient {
     fn protocol_name(&self) -> &str {
         "http"
     }
-    async fn send(&self, target: &str, data: &[u8]) -> Result<(), Box<dyn Error + Send + Sync>> {
+    async fn send(&mut self, target: &str, data: &[u8]) -> Result<(), Box<dyn Error + Send + Sync>> {
         let response = self.client.post(target)
             .body(data.to_vec())
             .send()
@@ -40,5 +40,10 @@ impl ProtocolHandler for HttpClient {
             .map_err(|e| HttpError::RequestFailed(e))?;
 
         Ok(())
+    }
+    
+    async fn receive(&mut self) -> Result<Vec<u8>, Box<dyn Error + Send + Sync>> { 
+        // TODO: Реализовать логику приема данных http
+        todo!()
     }
 }

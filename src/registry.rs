@@ -1,9 +1,7 @@
 //! Реестр плагинов
 //! Автоматически загружает плагины из директории plugins
 
-
 use std::collections::HashMap;
-use std::sync::Arc;
 use serde_yaml::Value;
 use async_trait::async_trait;
 use crate::engine::MicroKernel;
@@ -66,6 +64,11 @@ impl PluginRegistry {
 
         Some(factory(&config))
     }
+
+    pub fn add_config(&mut self, name: String, config: HashMap<String, Value>) {
+        self.configs.insert(name, config);
+    }
+
 
     // Создание всех включённых плагинов
     pub fn create_enabled(&self) -> Vec<Box<dyn Plugin>> {

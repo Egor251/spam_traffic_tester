@@ -1,8 +1,8 @@
 //! Модуль для работы с сетевыми протоколами
 
 pub mod http;
-mod tcp;
+pub mod tcp;
 
 // Реэкспортируем публичное API
 pub use http::HttpClient;
-pub use crate::engine::traits::ProtocolHandler;
+pub use crate::engine::traits::TcpProtocol;
